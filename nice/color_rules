@@ -1,0 +1,16 @@
+return {
+-- Table: {1}
+{
+   ["chromium"]="#d3e3fdff",
+   ["code"]="#f6f5f4",
+   ["blueman-manager"]="#f6f5f4",
+   ["Navigator"]="#000000ff",
+   ["firefox"]="#353535",
+   ["kitty"]="#000000ff",
+   ["lxappearance"]="#dcdad5",
+   ["qvidcap"]="#efefef",
+   ["filelight"]="#dee0e2",
+   ["discord"]="#282b30",
+   ["thunar"]="#f6f5f4ff",
+},
+}
