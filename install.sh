@@ -6,7 +6,7 @@ HOME_DIR="$(getent passwd "$USER" | cut -d: -f6)"
 # Function to install dependencies with pacman and yay
 install_deps() {
     echo "Installing dependencies with pacman..."
-    sudo pacman -S --needed xorg xorg-xinit xterm git polkit polkit-gnome alsa-utils pulseaudio pulseaudio-alsa pavucontrol pipewire pipewire-pulse
+    sudo pacman -S --needed xorg xorg-xinit xterm git polkit polkit-gnome alsa-utils pulseaudio pulseaudio-alsa pavucontrol pipewire pipewire-pulse arandr at
 
     echo "Installing AUR packages with yay..."
     yay -S --needed picom-git network-manager-applet volctl rofi lxappearance qt5ct kvantum pop-theme mugshot papirus-icon-theme awesome-git
@@ -61,6 +61,12 @@ setup_rofi(){
     echo "Moving rofi conf..."
     mkdir -p rofi_dest
     cp -rf rofi_source rofi_dest
+}
+
+double_monitor(){
+    arandr
+    echo 'ACTION=="change", RUN +="~/.config/awesome/arandr-auto/arandr_udev.sh' >> /etc/udev/rules.d/95-monitors.rules
+    sudo udevadm control --reload-rules
 }
 
 # Main function to orchestrate the setup
