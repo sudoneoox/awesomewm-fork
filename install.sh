@@ -55,6 +55,14 @@ arc_icons(){
     sudo make install
 }
 
+setup_rofi(){
+    local rofi_dest="$HOME_DIR/.config/rofi/"
+    local rofi_source="$HOME_DIR/.config/awesome/rofi"
+    echo "Moving rofi conf..."
+    mkdir -p rofi_dest
+    cp -rf rofi_source rofi_dest
+}
+
 # Main function to orchestrate the setup
 main() {
     install_deps
@@ -62,6 +70,7 @@ main() {
     move_wallpapers
     move_fonts
     arc_icons
+    setup_rofi
     echo "Installation and setup completed!"
 }
 
